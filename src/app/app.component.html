@@ -1,0 +1,12 @@
+<h1>
+  {{title}}
+</h1>
+<button (click)="viewImgForm()">입력</button>
+<div *ngIf="isView">
+	<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+		title : <input [(ngModel)]="image.title" placeholder="title" name=name/>
+		file : <input type="file" name=file (change)="fileSelected($event.target.files[0])"/>
+		<button type="submit">전송</button>
+	</form>
+</div>
+<router-outlet></router-outlet>
